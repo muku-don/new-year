@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year, My Love!</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: radial-gradient(circle, #000000, #1a1a1a);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .message-box {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            height: 25%;
+        }
+
+        .message-box h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ff66cc;
+        }
+
+        .message-box p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .heart {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff66cc;
+            transform: rotate(45deg);
+            animation: float 5s infinite ease-in-out;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff66cc;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -5px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -5px;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(0) rotate(45deg);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: white;
+            animation: explode 1.5s infinite ease-out;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(5);
+            }
+        }
+
+        .floating-image {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            animation: appearDisappear 5s infinite ease-in-out;
+        }
+
+        @keyframes appearDisappear {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <h1>Happy New Year, My Muku !!!</h1>
+        <p align="justify">"My dearest love, as the clock strikes midnight, I want you to know that you are my greatest blessing and my most cherished dream. This New Year, I promise to hold your hand through every high and low, to cherish every moment we share, and to love you with all my heart. May this year bring us endless adventures, boundless joy, and a love that only grows stronger. You are my today, my tomorrow, and my forever. Happy New Year, my everything! ❤️"</p>
+    </div>
+
+    <img id="image1" class="floating-image" src="https://github.com/muku-don/muku-don.github.io/blob/main/gallery/images/lost.jpg?raw=true" alt="Image1">
+    <img id="image2" class="floating-image" src="https://github.com/muku-don/muku-don.github.io/blob/main/gallery/images/magical.jpg?raw=true" alt="Image2">
+    <img id="image3" class="floating-image" src="https://github.com/muku-don/muku-don.github.io/blob/main/gallery/images/eyes.jpg?raw=true" alt="Image3">
+    <img id="image4" class="floating-image" src="https://github.com/muku-don/muku-don.github.io/blob/main/gallery/images/mind.jpg?raw=true" alt="Image4">
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        setInterval(createHeart, 300);
+
+        // Create fireworks
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = Math.random() * 100 + 'vw';
+            firework.style.top = Math.random() * 100 + 'vh';
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1500);
+        }
+
+        setInterval(createFirework, 500);
+
+        // Make images appear and disappear
+        const images = [
+            document.getElementById('image1'),
+            document.getElementById('image2'),
+            document.getElementById('image3'),
+            document.getElementById('image4')
+        ];
+
+        function animateImages() {
+            images.forEach(image => {
+                const randomX = Math.random() * 100 + 'vw';
+                const randomY = Math.random() * 100 + 'vh';
+                image.style.left = randomX;
+                image.style.top = randomY;
+                image.style.opacity = 1;
+                setTimeout(() => {
+                    image.style.opacity = 0;
+                }, 2500);
+            });
+        }
+
+        setInterval(animateImages, 5000);
+    </script>
+</body>
+</html>
